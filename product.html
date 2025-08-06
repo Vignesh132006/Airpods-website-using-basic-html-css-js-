@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SoundGuys AirPods Shop</title>
+  <link rel="stylesheet" href="./product.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>SoundGuys AirPods Shop</h1>
+      <div>
+        <input type="text" placeholder="Search AirPods..." />
+        <button>Search</button>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div><a href="./index.html">Home</a></div>
+    <div>
+      <a href="./product.html">Products</a>
+      <a href="#">About</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./login.html">Login</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h2>Experience the Magic of AirPods</h2>
+  </section>
+
+  <section class="products">
+    <div class="product">
+      <img src="./imge/airpods-pro.webp" alt="AirPods Pro" />
+      <h3>AirPods Pro</h3>
+      <p>₹26,900</p>
+      <button onclick="addToCart('AirPods Pro')">Buy Now</button>
+    </div>
+    
+    <div class="product">
+      <img src="./imge/AirPods-3rd-Gen_4.jpg" alt="AirPods 3rd Gen" />
+      <h3>AirPods (3rd Gen4)</h3>
+      <p>₹19,900</p>
+      <button onclick="addToCart('AirPods 3rd Gen')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="./imge/AirPods-2-Review-9to5Mac.webp" alt="AirPods 2nd Gen" />
+      <h3>AirPods (2nd Gen)</h3>
+      <p>₹12,900</p>
+      <button onclick="addToCart('AirPods 2nd Gen')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="./imge/AirPods-Max-2.webp" alt="AirPods Max" />
+      <h3>AirPods Max</h3>
+      <p>₹59,900</p>
+      <button onclick="addToCart('AirPods Max')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="./imge/magsafe-charging-case-.webp" alt="AirPods Pro Case" />
+      <h3>MagSafe Charging Case</h3>
+      <p>₹2,500</p>
+      <button onclick="addToCart('MagSafe Case')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="./imge/lightningcables.webp" alt="Lightning Cable" />
+      <h3>USB-C to Lightning Cable</h3>
+      <p>₹1,800</p>
+      <button onclick="addToCart('Lightning Cable')">Buy Now</button>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 AirPods Shop. Built with ❤️ by Vignesh.
+  </footer>
+  <script src="./product.js"></script>
+</body>
+</html>

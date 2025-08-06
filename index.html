@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoundGuys AirPods Pro</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+  <header>
+    <h1>SoundGuys AirPods Pro</h1>
+  </header>
+
+  <nav>
+    <div><a href="./index.html">Home</a></div>
+    <div>
+      <a href="./product.html">Products</a>
+      <a href="./support.html">Support</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./login.html">Login</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+
+    <img id="mainImage" src="./imge/641141.jpeg" alt="AirPods Pro">
+
+    <div class="hero-content">
+      <h1>Wireless. Effortless. Magical.</h1>
+      <p>AirPods Pro have been designed to deliver Active Noise Cancellation for immersive sound, Transparency mode so you can hear your surroundings, and a customizable fit for all-day comfort.</p>
+      <button onclick="addToCart()">Add to Cart -  ₹21,389</button>
+    </div>
+
+  </section>
+
+  <section class="gallery">
+    <img src="./imge/airpods-case.webp" onclick="changeImage(this.src)" alt="AirPods Case">
+    <img src="./imge/Ear-tips.webp" onclick="changeImage(this.src)" alt="Ear Tips">
+    <img src="./imge/airpods-fit.jpg" onclick="changeImage(this.src)" alt="AirPods Fit">
+  </section>
+
+  <footer>
+    &copy; 2025 AirPods Website. Built for demo purposes.
+  </footer>
+
+  <script>
+    function changeImage(src) {
+      document.getElementById("mainImage").src = src;
+    }
+
+    function addToCart() {
+      alert("AirPods Pro added to cart!");
+    }
+  </script>
+
+</body>
+</html>
