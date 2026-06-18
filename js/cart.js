@@ -192,6 +192,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartOverlay = document.getElementById("cart-overlay");
   const checkoutBtn = document.getElementById("cart-checkout-btn");
 
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+  }
+
   if (navCartBtn) navCartBtn.addEventListener("click", toggleCartDrawer);
   if (closeCartBtn) closeCartBtn.addEventListener("click", toggleCartDrawer);
   if (cartOverlay) cartOverlay.addEventListener("click", toggleCartDrawer);
