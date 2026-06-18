@@ -1,92 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us | SoundGuys AirPods Shop</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reach out to the SoundGuys support team. Send us comments, questions, or issues with your Apple AirPods order.">
+  <title>Contact Us | SoundGuys AirPods Store</title>
+  
+  <!-- CDNs for styling & icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./index.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f9f9f9;
+    .contact-container {
+      max-width: 650px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
     }
 
-    header {
-      background-color: #000;
-      color: #fff;
-      padding: 20px;
+    .contact-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-hero h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 40%, #86868b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-hero p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    /* Contact Form Panel */
+    .contact-form-panel {
+      padding: 40px;
+      border: 1px solid var(--panel-border);
+      transition: var(--transition-smooth);
+    }
+
+    .contact-form-panel h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
       text-align: center;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .form-group {
+      margin-bottom: 24px;
+      position: relative;
     }
 
-    h2 {
-      margin-bottom: 20px;
-    }
-
-    label {
+    .form-group label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
     }
 
-    input, textarea {
+    .form-group input,
+    .form-group textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--panel-border);
+      color: var(--text-primary);
+      border-radius: 12px;
+      outline: none;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
     }
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #000;
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 15px var(--accent-glow);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--accent-color);
       color: white;
       border: none;
-      border-radius: 5px;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 14px var(--accent-glow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
     }
 
-    button:hover {
-      background-color: #333;
+    .btn-submit:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 6px 20px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 576px) {
+      .contact-form-panel {
+        padding: 24px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Contact Us</h1>
+  <!-- Global Glassmorphism Header -->
+  <header class="global-header">
+    <div class="nav-container">
+      <a href="./index.html" class="logo-link" id="logo">
+        <i class="fa-brands fa-apple"></i>
+        <span>SoundGuys</span>
+      </a>
+      
+      <nav class="main-nav">
+        <a href="./index.html">Home</a>
+        <a href="./product.html">Products</a>
+        <a href="./support.html">Support</a>
+        <a href="./contact.html" class="active">Contact</a>
+        <a href="./login.html">Login</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn cart-trigger" id="cartTrigger" aria-label="Open Shopping Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-btn-badge cart-count-badge" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <div class="container">
-    <h2>We did love to hear from you</h2>
-    <form onsubmit="submitContact(event)">
-      <label for="name">Name</label>
-      <input type="text" id="name" required>
+  <!-- Contact Form Section -->
+  <div class="contact-container">
+    <section class="contact-hero">
+      <h2>Get in Touch</h2>
+      <p>Have questions about your order or our AirPods? Send us a message.</p>
+    </section>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
+    <div class="contact-form-panel glass-panel" id="formPanel">
+      <h3>We'd love to hear from you</h3>
+      
+      <form id="contactForm" onsubmit="submitContact(event)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="John Doe" required />
+        </div>
 
-      <label for="message">Message</label>
-      <textarea id="message" rows="5" required></textarea>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="john@example.com" required />
+        </div>
 
-      <button type="submit">Send Message</button>
-    </form>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" rows="5" placeholder="Tell us how we can assist you..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
   </div>
 
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="container">
+      <p>&copy; 2026 SoundGuys AirPods. Original Apple Clone & Retail Demo.</p>
+      <p style="margin-top: 10px; font-size: 0.8rem; color: var(--text-secondary);">
+        Built with ❤️ using HTML, CSS, JavaScript & GSAP. Check out our <a href="./support.html">Support Center</a> or <a href="./contact.html">Contact Us</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Include GSAP & Global Cart JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="./cart.js"></script>
+  
   <script>
+    // GSAP load animations
+    window.addEventListener("DOMContentLoaded", () => {
+      gsap.from(".contact-hero", {
+        opacity: 0,
+        y: -20,
+        duration: 0.6,
+        ease: "power2.out"
+      });
+
+      gsap.from("#formPanel", {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: "power3.out",
+        delay: 0.2
+      });
+    });
+
+    // Handle Form Submit using dynamic toast
     function submitContact(e) {
       e.preventDefault();
-      alert("Your message has been sent! We'll get back to you soon.");
-      document.querySelector("form").reset();
+      
+      const name = document.getElementById("name").value.trim();
+      
+      // Clear forms
+      document.getElementById("contactForm").reset();
+      
+      // Trigger success toast from cart.js
+      if (typeof showToast === "function") {
+        showToast(`Thank you, ${name}! Your message has been sent successfully.`, "success");
+      } else {
+        alert("Thank you! Your message has been sent successfully.");
+      }
     }
   </script>
 </body>
