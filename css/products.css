@@ -158,3 +158,129 @@
   color: var(--ink3);
   font-size: 16px;
 }
+
+/* Product Detail Page Styling */
+.detail-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  box-sizing: border-box;
+}
+
+.detail-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.detail-visual-panel {
+  background-color: var(--white);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 480px;
+  position: relative;
+}
+
+.detail-visual-panel svg {
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.detail-info-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.detail-badge {
+  margin-bottom: 16px;
+}
+
+.detail-info-panel h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.detail-price {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.detail-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink2);
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+.detail-specs-section {
+  width: 100%;
+  border-top: 1.5px solid var(--border);
+  padding-top: 32px;
+  margin-bottom: 40px;
+}
+
+.detail-specs-section h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.detail-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-specs-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--ink2);
+  font-weight: 500;
+}
+
+.detail-specs-list svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent-dark);
+  flex-shrink: 0;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.detail-add-btn {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .detail-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .detail-visual-panel {
+    height: 320px;
+    padding: 24px;
+  }
+}
+

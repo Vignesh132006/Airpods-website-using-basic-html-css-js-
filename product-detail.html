@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View detailed specifications and features of our high-fidelity AirPods models.">
+  <title>AirPods Detail — Premium Store</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.13 2 5 5.13 5 9v5.5c0 1.93 1.57 3.5 3.5 3.5H9c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H7v-3c0-2.76 2.24-5 5-5s5 2.24 5 5v3h-2c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h.5c1.93 0 3.5-1.57 3.5-3.5V9c0-3.87-3.13-7-7-7z"/>
+        </svg>
+        <span>AirPods</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Catalog</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-btn" id="nav-cart-btn" aria-label="Open shopping cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+          <span class="cart-badge" id="cart-badge-count">0</span>
+        </button>
+        <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="detail-section">
+      <div class="detail-container">
+        <!-- Left Panel: SVG Visual -->
+        <div class="detail-visual-panel" id="detail-visual-container">
+          <!-- Inline SVG rendered dynamically -->
+        </div>
+
+        <!-- Right Panel: Info and Specs -->
+        <div class="detail-info-panel">
+          <span class="detail-badge eyebrow" id="detail-badge"></span>
+          <h1 id="detail-title">Loading...</h1>
+          <div class="detail-price" id="detail-price">$0.00</div>
+          <p class="detail-desc" id="detail-desc">Loading description...</p>
+          
+          <div class="detail-specs-section">
+            <h3>Technical specifications</h3>
+            <ul class="detail-specs-list" id="detail-specs-list">
+              <!-- Rendered dynamically -->
+            </ul>
+          </div>
+
+          <div class="detail-actions">
+            <button class="btn btn-accent detail-add-btn" id="detail-add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer Overlay -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+
+  <!-- Cart Drawer -->
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>Your bag</h3>
+      <button class="close-cart-btn" id="close-cart-btn" aria-label="Close cart drawer">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="cart-items-container" id="cart-items-container">
+      <div class="cart-empty-message">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+        <p>Your shopping bag is empty</p>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span class="cart-subtotal-label">Subtotal</span>
+        <span class="cart-subtotal-val" id="cart-subtotal-val">$0.00</span>
+      </div>
+      <button class="btn btn-accent checkout-btn" id="cart-checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2026 AirPods Premium Store. Built with clean, flat guidelines.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id") || "airpods-pro-2";
+      const product = PRODUCTS.find(p => p.id === id);
+
+      if (!product) {
+        document.querySelector(".detail-container").innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 64px 0;">
+            <h2>Product not found</h2>
+            <p style="color: var(--ink2); margin: 16px 0 24px;">The AirPods model you are looking for does not exist.</p>
+            <a href="index.html" class="btn btn-accent">Return home</a>
+          </div>
+        `;
+        return;
+      }
+
+      // Update metadata
+      document.title = `${product.name} — AirPods Premium Store`;
+      document.getElementById("detail-title").textContent = product.name;
+      document.getElementById("detail-desc").textContent = product.description;
+      document.getElementById("detail-price").textContent = `$${product.price.toFixed(2)}`;
+      document.getElementById("detail-visual-container").innerHTML = product.svg;
+      document.getElementById("detail-badge").textContent = product.badge;
+
+      const specsList = document.getElementById("detail-specs-list");
+      specsList.innerHTML = product.specs.map(spec => `
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>${spec}</span>
+        </li>
+      `).join("");
+
+      document.getElementById("detail-add-btn").onclick = () => {
+        addToCart(product.id);
+      };
+    });
+  </script>
+</body>
+</html>
