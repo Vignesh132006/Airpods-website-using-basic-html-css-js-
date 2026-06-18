@@ -141,12 +141,16 @@
   flex-direction: column;
   position: relative;
   transition: var(--transition-smooth);
+  background: rgba(18, 18, 18, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.03) !important;
 }
 
 .product-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  border-color: #ffffff !important;
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.12) !important;
+  background: rgba(24, 24, 24, 0.9) !important;
 }
 
 .product-tag {
