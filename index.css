@@ -114,7 +114,7 @@ nav.main-nav {
 }
 
 nav.main-nav a {
-  color: var(--text-secondary);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
@@ -832,7 +832,7 @@ footer.global-footer a:hover {
 }
 
 .mobile-nav-panel a {
-  color: var(--text-secondary);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
