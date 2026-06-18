@@ -20,7 +20,7 @@
       <div class="auth-showcase-bg"></div>
       
       <div class="auth-showcase-content">
-        <a href="./index.html" class="auth-logo" id="authLogo">
+        <a href="./home.html" class="auth-logo" id="authLogo">
           <i class="fa-brands fa-apple"></i>
           <span>SoundGuys</span>
         </a>
@@ -40,7 +40,7 @@
     <!-- Right Sign Up Panel -->
     <div class="auth-form-panel" id="formPanel">
       <h3 id="formTitle">Create Account</h3>
-      <p class="auth-subtitle" id="formSubtitle">Already have an account? <a href="./login.html">Sign In</a></p>
+      <p class="auth-subtitle" id="formSubtitle">Already have an account? <a href="./index.html">Sign In</a></p>
       
       <form id="signupForm" class="auth-form">
         <div class="auth-field">
@@ -137,7 +137,7 @@
           localStorage.setItem("soundguys_user", JSON.stringify({ email: email, name: fullName, isLoggedIn: true }));
 
           alert("Account created successfully! Welcome to SoundGuys.");
-          window.location.href = "./index.html";
+          window.location.href = "./home.html";
         });
       }
     });

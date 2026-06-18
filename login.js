@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Alert user using a dynamic dialog or simple alert in context
         // Direct redirect with confirmation
         alert("Login successful! Welcome back to SoundGuys.");
-        window.location.href = "./index.html";
+        window.location.href = "./home.html";
         this.reset();
     });
 });
