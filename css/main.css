@@ -41,8 +41,48 @@ main {
   margin-bottom: 8px;
 }
 
-/* Focus styling */
-*:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
+/* Buttons
+   Rule: transparent bg, 1.5px border, hover fills solid
+*/
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  text-transform: none;
+  letter-spacing: -0.01em;
 }
+
+.btn:hover {
+  background-color: var(--ink);
+  color: var(--white);
+}
+
+.btn-accent {
+  border-color: var(--accent);
+}
+
+.btn-accent:hover {
+  background-color: var(--accent);
+  color: var(--ink);
+}
+
+.btn-secondary {
+  border-color: var(--border);
+  color: var(--ink2);
+}
+
+.btn-secondary:hover {
+  border-color: var(--ink);
+  background-color: var(--ink);
+  color: var(--white);
+}
+
