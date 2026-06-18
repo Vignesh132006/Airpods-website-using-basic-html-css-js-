@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View your cart items and complete checkout on our high-contrast AirPods store.">
+  <title>Your Bag — AirPods Premium Store</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.13 2 5 5.13 5 9v5.5c0 1.93 1.57 3.5 3.5 3.5H9c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H7v-3c0-2.76 2.24-5 5-5s5 2.24 5 5v3h-2c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h.5c1.93 0 3.5-1.57 3.5-3.5V9c0-3.87-3.13-7-7-7z"/>
+        </svg>
+        <span>AirPods</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Catalog</a>
+        <a href="cart.html" class="nav-link active">Cart</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-btn" id="nav-cart-btn" aria-label="Open shopping cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+          <span class="cart-badge" id="cart-badge-count">0</span>
+        </button>
+        <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="cart-page-section">
+      <h1>Your bag</h1>
+      <div id="cart-page-container">
+        <!-- Standalone cart grid rendered dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer Overlay -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+
+  <!-- Cart Drawer -->
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>Your bag</h3>
+      <button class="close-cart-btn" id="close-cart-btn" aria-label="Close cart drawer">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="cart-items-container" id="cart-items-container">
+      <div class="cart-empty-message">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+        <p>Your shopping bag is empty</p>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span class="cart-subtotal-label">Subtotal</span>
+        <span class="cart-subtotal-val" id="cart-subtotal-val">$0.00</span>
+      </div>
+      <button class="btn btn-accent checkout-btn" id="cart-checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2026 AirPods Premium Store. Built with clean, flat guidelines.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    function renderFullCart() {
+      const pageContainer = document.getElementById("cart-page-container");
+      if (!pageContainer) return;
+
+      const itemKeys = Object.keys(cart);
+      if (itemKeys.length === 0) {
+        pageContainer.innerHTML = `
+          <div class="cart-page-empty">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 48px; height: 48px; fill: var(--ink3);">
+              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+            </svg>
+            <p>Your shopping bag is currently empty</p>
+            <a href="products.html" class="btn btn-accent" style="margin-top: 8px;">Explore catalog</a>
+          </div>
+        `;
+        return;
+      }
+
+      let subtotal = 0;
+      const itemsHtml = itemKeys.map(id => {
+        const item = cart[id];
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+
+        return `
+          <div class="cart-item" style="grid-template-columns: 100px 1fr; padding-bottom: 24px; border-bottom: 1px solid var(--border2);">
+            <div class="cart-item-visual" style="width: 100px; height: 100px; padding: 12px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); background-color: var(--white);">
+              ${item.svg}
+            </div>
+            <div class="cart-item-details" style="justify-content: center; gap: 8px;">
+              <div class="cart-item-meta" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <h4 class="cart-item-name" style="font-size: 18px; font-weight: 800; color: var(--ink);">${item.name}</h4>
+                <span class="cart-item-price" style="font-size: 18px; font-weight: 800; color: var(--ink);">$${itemTotal.toFixed(2)}</span>
+              </div>
+              <div class="cart-item-controls" style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+                <div class="qty-controls">
+                  <button class="qty-btn" onclick="updateQty('${id}', -1)">-</button>
+                  <span class="qty-val" style="padding: 0 16px; font-size: 14px; font-weight: 800; color: var(--ink);">${item.qty}</span>
+                  <button class="qty-btn" onclick="updateQty('${id}', 1)">+</button>
+                </div>
+                <span class="remove-item-btn" onclick="removeItem('${id}')" style="font-size: 13px; font-weight: 700; color: var(--ink3); text-decoration: underline; cursor: pointer;">Remove</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      const tax = subtotal * 0.08; // 8% sales tax
+      const total = subtotal + tax;
+
+      pageContainer.innerHTML = `
+        <div class="cart-page-grid">
+          <div class="cart-page-items">
+            ${itemsHtml}
+          </div>
+          <div class="summary-card">
+            <h3>Order summary</h3>
+            <div class="summary-rows">
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span>$${subtotal.toFixed(2)}</span>
+              </div>
+              <div class="summary-row">
+                <span>Shipping</span>
+                <span>Free</span>
+              </div>
+              <div class="summary-row">
+                <span>Estimated tax (8%)</span>
+                <span>$${tax.toFixed(2)}</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total</span>
+                <span>$${total.toFixed(2)}</span>
+              </div>
+            </div>
+            <button class="btn btn-accent cart-page-checkout-btn" id="cart-page-checkout-btn">Proceed to checkout</button>
+          </div>
+        </div>
+      `;
+
+      // Bind checkout action for the page
+      document.getElementById("cart-page-checkout-btn").addEventListener("click", () => {
+        showToast("Order placed successfully! Thank you. ⚡");
+        cart = {};
+        saveCart();
+        updateCartBadge();
+        renderCart();
+        renderFullCart();
+      });
+    }
+
+    // Assign globally so cart.js updates trigger page re-renders
+    window.renderFullCart = renderFullCart;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderFullCart();
+    });
+  </script>
+</body>
+</html>

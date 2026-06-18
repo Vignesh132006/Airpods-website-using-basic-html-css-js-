@@ -274,3 +274,102 @@
   background-color: var(--accent);
   border-radius: 2px;
 }
+
+/* Standalone Cart Page Styling */
+.cart-page-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  box-sizing: border-box;
+}
+
+.cart-page-section h1 {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 800;
+  margin-bottom: 40px;
+  letter-spacing: -0.03em;
+}
+
+.cart-page-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.cart-page-items {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cart-page-empty {
+  text-align: center;
+  padding: 80px 24px;
+  color: var(--ink3);
+  background-color: var(--white);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cart-page-empty p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Summary Card Layout */
+.summary-card {
+  background-color: var(--white);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.summary-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  border-bottom: 1.5px solid var(--border);
+  padding-bottom: 16px;
+  margin-bottom: 8px;
+}
+
+.summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--ink2);
+  font-weight: 700;
+}
+
+.summary-row.total {
+  font-size: 18px;
+  color: var(--ink);
+  font-weight: 800;
+  border-top: 1.5px solid var(--border);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.summary-row.total span:last-child {
+  font-size: 22px;
+}
+
+.cart-page-checkout-btn {
+  width: 100%;
+}
+
