@@ -63,8 +63,8 @@
         Designed to deliver up to 2x more Active Noise Cancellation for immersive acoustics. Adaptive Audio tailors the noise control to your environment, and Personalized Spatial Audio wraps sound all around you.
       </p>
       <div class="hero-cta" id="heroCta">
-        <button class="btn-primary" onclick="addToCart('AirPods Pro', 21389, './imge/airpods-pro.webp')">
-          <i class="fa-solid fa-bag-shopping"></i> Buy Now - ₹21,389
+        <button class="btn-primary" onclick="addToCart('AirPods Pro', 26900, './imge/airpods-pro.webp')">
+          <i class="fa-solid fa-bag-shopping"></i> Buy Now - ₹26,900
         </button>
         <a href="./product.html" class="btn-secondary">
           Explore All Products
@@ -74,7 +74,9 @@
 
     <div class="hero-image-container" id="heroImgContainer">
       <div class="hero-image-bg"></div>
-      <img id="mainImage" src="./imge/641141.jpeg" alt="AirPods Pro Showcase" />
+      <div id="mainImageWrapper" style="width: 100%; max-width: 400px; display: flex; justify-content: center; align-items: center;">
+        <img id="mainImage" src="./imge/641141.jpeg" alt="AirPods Pro Showcase" />
+      </div>
     </div>
   </section>
 
@@ -153,10 +155,11 @@
         .from("#heroTitle span", { duration: 0.8, opacity: 0, y: 30, stagger: 0.15 }, "-=0.4")
         .from("#heroDesc", { duration: 0.6, opacity: 0, y: 20 }, "-=0.4")
         .from("#heroCta button, #heroCta a", { duration: 0.6, opacity: 0, y: 15, stagger: 0.1 }, "-=0.4")
-        .from("#heroImgContainer", { duration: 1.2, opacity: 0, scale: 0.8 }, "-=0.8");
+        .from("#heroImgContainer", { duration: 1.2, opacity: 0, scale: 0.8 }, "-=0.8")
+        .from(".spec-card", { duration: 0.6, opacity: 0, y: 30, stagger: 0.1 }, "-=0.4");
 
-      // Subtle Floating Animation for the Main AirPod Image
-      gsap.to("#mainImage", {
+      // Subtle Floating Animation on wrapper to avoid transform conflict with 3D rotation
+      gsap.to("#mainImageWrapper", {
         y: -15,
         duration: 3,
         ease: "sine.inOut",
@@ -197,15 +200,6 @@
         });
       }
       
-      // Scroll-Triggered animations for spec cards (approximate viewport trigger for simple landing page)
-      gsap.from(".spec-card", {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power2.out",
-        delay: 0.5
-      });
     });
 
     // Gallery Swap Animation (GSAP Crossfade)
