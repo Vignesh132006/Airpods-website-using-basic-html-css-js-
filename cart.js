@@ -13,6 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleCart();
         });
     });
+
+    // Auto-bind mobile navigation menu toggles
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileNavPanel = document.getElementById("mobileNavPanel");
+    if (mobileMenuBtn && mobileNavPanel) {
+        mobileMenuBtn.addEventListener("click", () => {
+            mobileNavPanel.classList.toggle("open");
+            const icon = mobileMenuBtn.querySelector("i");
+            if (icon) {
+                icon.classList.toggle("fa-bars");
+                icon.classList.toggle("fa-xmark");
+            }
+        });
+    }
 });
 
 let cart = JSON.parse(localStorage.getItem("soundguys_cart")) || [];
