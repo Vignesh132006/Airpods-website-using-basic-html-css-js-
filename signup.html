@@ -134,7 +134,11 @@
           }
 
           // Save simulated session
-          localStorage.setItem("soundguys_user", JSON.stringify({ email: email, name: fullName, isLoggedIn: true }));
+          try {
+            localStorage.setItem("soundguys_user", JSON.stringify({ email: email, name: fullName, isLoggedIn: true }));
+          } catch (e) {
+            console.warn("localStorage user save denied:", e);
+          }
 
           alert("Account created successfully! Welcome to SoundGuys.");
           window.location.href = "./home.html";

@@ -29,7 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-let cart = JSON.parse(localStorage.getItem("soundguys_cart")) || [];
+let cart = [];
+try {
+    cart = JSON.parse(localStorage.getItem("soundguys_cart")) || [];
+} catch (e) {
+    console.warn("localStorage cart access denied:", e);
+}
 
 // Inject HTML structures dynamically to prevent code duplication across pages
 function injectCartAndToasts() {
@@ -213,7 +218,11 @@ function updateQuantity(id, amount) {
 
 // Save to LocalStorage
 function saveCart() {
-    localStorage.setItem("soundguys_cart", JSON.stringify(cart));
+    try {
+        localStorage.setItem("soundguys_cart", JSON.stringify(cart));
+    } catch (e) {
+        console.warn("Failed to save to localStorage:", e);
+    }
 }
 
 // Redraw Cart contents and badges

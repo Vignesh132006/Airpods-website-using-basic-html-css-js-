@@ -25,7 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Simulate successful login
-        localStorage.setItem("soundguys_user", JSON.stringify({ email: email, isLoggedIn: true }));
+        try {
+            localStorage.setItem("soundguys_user", JSON.stringify({ email: email, isLoggedIn: true }));
+        } catch (e) {
+            console.warn("localStorage user save denied:", e);
+        }
         
         // Alert user using a dynamic dialog or simple alert in context
         // Direct redirect with confirmation
