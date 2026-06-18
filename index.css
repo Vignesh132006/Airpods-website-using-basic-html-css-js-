@@ -120,7 +120,7 @@ nav.main-nav a {
   font-size: 0.95rem;
   padding: 8px 16px;
   border-radius: 20px;
-  transition: var(--transition-smooth);
+  transition: 5s ease-in-out;
   position: relative;
 }
 
