@@ -1,1 +1,160 @@
-/* Products grid styling */
+/* Product Grid & Filters Styling */
+
+.catalog-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.catalog-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.catalog-header h2 {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+}
+
+/* Filter Chips */
+.filter-chips {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  background-color: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--ink2);
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 24px;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.filter-chip:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.filter-chip.active {
+  background-color: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+/* Product Card Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* Product Card design requirements */
+/* Cards: white bg, 0.5px solid var(--border2), border-radius: var(--radius) */
+/* No box-shadows except focus rings */
+.product-card {
+  background-color: var(--white);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  border-color: var(--border);
+}
+
+/* Featured card gets 2px solid var(--accent) border only */
+.product-card.featured {
+  border: 2px solid var(--accent) !important;
+}
+
+.product-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+.product-visual {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  background-color: var(--bg);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 16px;
+}
+
+.product-visual svg {
+  height: 100%;
+  max-width: 100%;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .product-visual svg {
+  transform: scale(1.06);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.product-desc {
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.product-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 12px;
+  border-radius: var(--radius-sm);
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--ink3);
+  font-size: 16px;
+}
