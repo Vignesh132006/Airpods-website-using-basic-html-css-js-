@@ -43,13 +43,39 @@ function addToCart(id) {
   showToast(`Added ${product.name} to your bag`);
 }
 
-// Temporary stubs for controls (fully implemented in next commit)
 function updateQty(id, delta) {
-  console.log("Quantity update requested for:", id, "by:", delta);
+  if (!cart[id]) return;
+  cart[id].qty += delta;
+
+  if (cart[id].qty <= 0) {
+    removeItem(id);
+    return;
+  }
+
+  saveCart();
+  updateCartBadge();
+  renderCart();
+
+  // Sync standalone cart page if it exists
+  if (window.renderFullCart) {
+    window.renderFullCart();
+  }
 }
 
 function removeItem(id) {
-  console.log("Removal requested for:", id);
+  if (!cart[id]) return;
+  const name = cart[id].name;
+  delete cart[id];
+
+  saveCart();
+  updateCartBadge();
+  renderCart();
+  showToast(`Removed ${name} from your bag`);
+
+  // Sync standalone cart page if it exists
+  if (window.renderFullCart) {
+    window.renderFullCart();
+  }
 }
 
 function updateCartBadge() {
